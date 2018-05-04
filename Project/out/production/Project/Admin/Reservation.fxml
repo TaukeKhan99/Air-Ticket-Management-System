@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="742.0" styleClass="root" stylesheets="@File.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Admin.Admin">
+   <children>
+      <Label layoutX="71.0" layoutY="30.0" style="-fx-font-style: italic; -fx-font-weight: bold; -fx-font-size: 40;" text="Air Ticket Reservation System ">
+         <font>
+            <Font size="35.0" />
+         </font>
+      </Label>
+      <TabPane layoutX="-1.0" layoutY="103.0" prefHeight="692.0" prefWidth="742.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab closable="false" text="Reservation">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="613.0" prefWidth="742.0">
+                     <children>
+                        <Label layoutX="23.0" layoutY="26.0" text="Sourse station :" />
+                        <ComboBox fx:id="sourceStationBox" layoutX="135.0" layoutY="24.0" prefHeight="25.0" prefWidth="203.0" />
+                        <Label layoutX="360.0" layoutY="26.0" text="Destination :" />
+                        <ComboBox fx:id="destinationBox" layoutX="461.0" layoutY="24.0" prefHeight="25.0" prefWidth="251.0" />
+                        <Label layoutX="48.0" layoutY="83.0" text="Data :" />
+                        <DatePicker fx:id="date" layoutX="121.0" layoutY="79.0" prefHeight="25.0" prefWidth="163.0" />
+                        <Button fx:id="getDetails" layoutX="323.0" layoutY="79.0" mnemonicParsing="false" onAction="#getDetailsAction" prefHeight="25.0" prefWidth="96.0" text="Get details" />
+                        <Button fx:id="reset" layoutX="461.0" layoutY="79.0" mnemonicParsing="false" onAction="#resetDetails" prefHeight="25.0" prefWidth="68.0" text="Reset" />
+                        <Label fx:id="instruction" layoutX="210.0" layoutY="139.0" text="Select Flight From List and Double Click It:" />
+                        <TableView fx:id="flightData1" layoutX="42.0" layoutY="167.0" prefHeight="200.0" prefWidth="679.0">
+                           <columns>
+                              <TableColumn fx:id="idColumn1" prefWidth="65.0" text="Flight ID" />
+                              <TableColumn fx:id="nameColumn1" prefWidth="99.0" text="Flight name" />
+                              <TableColumn fx:id="sourceColumn1" prefWidth="88.0" text="Source" />
+                              <TableColumn fx:id="departureColumn1" prefWidth="95.0" text="Departure" />
+                              <TableColumn fx:id="chargeColumn1" prefWidth="101.0" text="Flight charge" />
+                              <TableColumn fx:id="seatsColumn1" prefWidth="98.0" text="Destination" />
+                              <TableColumn fx:id="destinationColumn1" prefWidth="50.0" text="Seats" />
+                              <TableColumn fx:id="timeColumn1" prefWidth="82.0" text="Arrival time" />
+                           </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Airline Management">
+            <content>
+              <AnchorPane minHeight="-Infinity" minWidth="0.0" prefHeight="663.0" prefWidth="674.0">
+                     <children>
+                        <Label layoutX="40.0" layoutY="204.0" text="Seats:" />
+                        <Button layoutX="363.0" layoutY="105.0" mnemonicParsing="false" onAction="#addFlight" prefHeight="45.0" prefWidth="116.0" text="Add Flight" />
+                        <Button layoutX="496.0" layoutY="104.0" mnemonicParsing="false" onAction="#removeFlight" prefHeight="46.0" prefWidth="117.0" text="Remove Flight" />
+                        <Button layoutX="367.0" layoutY="173.0" mnemonicParsing="false" onAction="#loadFlightData" prefHeight="47.0" prefWidth="108.0" text="Load Data" />
+                        <Button layoutX="496.0" layoutY="173.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="119.0" text="Update Data" />
+                        <Label layoutX="35.0" layoutY="18.0" text="Flight ID:" />
+                        <TextField fx:id="flightID" layoutX="103.0" layoutY="14.0" prefHeight="25.0" prefWidth="197.0" />
+                        <TextField fx:id="flightName" layoutX="104.0" layoutY="52.0" prefHeight="25.0" prefWidth="196.0" />
+                        <Label layoutX="18.0" layoutY="55.0" text="Flight name:" />
+                        <Label layoutX="40.0" layoutY="95.0" text="Source:" />
+                        <TextField fx:id="source" layoutX="104.0" layoutY="91.0" prefHeight="25.0" prefWidth="196.0" />
+                        <TextField fx:id="departure" layoutX="104.0" layoutY="127.0" prefHeight="25.0" prefWidth="196.0" />
+                        <TextField fx:id="flightCharge" layoutX="104.0" layoutY="160.0" prefHeight="25.0" prefWidth="196.0" />
+                        <TextField fx:id="seats" layoutX="104.0" layoutY="200.0" prefHeight="25.0" prefWidth="196.0" />
+                        <Label layoutX="23.0" layoutY="130.0" text="Departure:" />
+                        <Label layoutX="14.0" layoutY="163.0" text="Flight charge:" />
+                        <Label layoutX="344.0" layoutY="18.0" text="Destination:" />
+                        <Label layoutX="344.0" layoutY="55.0" text="Arrival time:" />
+                        <TextField fx:id="destination" layoutX="430.0" layoutY="16.0" prefHeight="25.0" prefWidth="196.0" />
+                        <TextField fx:id="arrivalTime" layoutX="430.0" layoutY="53.0" prefHeight="25.0" prefWidth="196.0" />
+                        <TableView fx:id="flightData" layoutX="57.0" layoutY="264.0" prefHeight="200.0" prefWidth="681.0" AnchorPane.rightAnchor="29.0">
+                          <columns>
+                            <TableColumn fx:id="idColumn" prefWidth="71.0" text="Flight ID" />
+                            <TableColumn fx:id="nameColumn" prefWidth="115.0" text="Flight name" />
+                              <TableColumn fx:id="sourceColumn" prefWidth="98.0" text="Source" />
+                              <TableColumn fx:id="departureColumn" prefWidth="76.0" text="Departure" />
+                              <TableColumn fx:id="chargeColumn" prefWidth="98.0" text="Flight charge" />
+                              <TableColumn fx:id="seatsColumn" prefWidth="84.0" text="Destination" />
+                              <TableColumn fx:id="destinationColumn" prefWidth="55.0" text="Seats" />
+                              <TableColumn fx:id="timeColumn" prefWidth="83.0" text="Arrival time" />
+                          </columns>
+                        </TableView>
+                     </children></AnchorPane>
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+    <stylesheets>
+        <URL value="@File.css" />
+    </stylesheets>
+</AnchorPane>
